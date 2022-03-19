@@ -1,0 +1,31 @@
+#paleta, #desenho{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+#desenho{
+  height: 500px;
+}
+
+#paleta{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.espaco{
+  width: 20px;
+  height: 20px;
+  border: 1px solid lightgray;
+  float: left;
+}
+
+.cores{
+  width: 90px;
+  height: 90px;
+  border: 2px solid black;
+  float: left;
+  margin-right: 3px;
+}

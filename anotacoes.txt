@@ -1,0 +1,4 @@
+criar variável html com o código do elemento filho
+criar variável do elemento filho com createElement
+setar o innerHTML do elemento filho usando o html criado
+pegar elemento pai e usar appendChild passando o elemento filho como parâmetro
