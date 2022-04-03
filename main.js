@@ -4,7 +4,7 @@ const desenho = document.getElementById("desenho");
 
 function criarDivsPaleta() {
 
-    let cores = ["black", "blue", "purple", "yellow", "red", "green", "white"];
+    let cores = ["black", "blue", "purple", "yellow", "red", "green", "cyan", "white"];
 
 
     cores.forEach(cor => {
@@ -23,7 +23,7 @@ function criarDivsDesenho() {
 
     let html = "<div class='espaco'></div>";
 
-    for (i = 0; i < 1081; i++) {
+    for (i = 0; i < 1071; i++) {
 
         let divEspaco = document.createElement('div');
         divEspaco.innerHTML = html;
@@ -36,21 +36,27 @@ function criarDivsDesenho() {
 
 function cliquePaleta() {
 
-    //Uma função dentro de uma função dentro de uma função dentro de uma função dentro de outra função :/
-
     let divsPaleta = paleta.querySelectorAll("div")
 
-    paleta.addEventListener("click", event => {
+    divsPaleta.forEach(div => {
 
-        divsPaleta.forEach(div => {
+        div.addEventListener("click", event => {
 
-            div.style.borderColor = "black"
+            divsPaleta.forEach(div => {
+
+                div.style.borderColor = "black"
+
+            })
+
+            event.target.style.border = "2px solid yellow"
+
+            corClicada = event.target.style.backgroundColor
+
+            let corAtual = document.getElementById("corAtual")
+
+            corAtual.style.backgroundColor = corClicada
 
         })
-
-        event.target.style.borderColor = "yellow"
-
-        corClicada = event.target.style.backgroundColor
 
     })
 
@@ -59,10 +65,20 @@ function cliquePaleta() {
 
 function cliqueDesenho() {
 
-    //ao clicar em uma div do desenho, pegar a cor armazenada na variável corAtual e colocar no background color do target
+    let divsDesenho = desenho.querySelectorAll("div")
+
+    divsDesenho.forEach(div => {
+
+        div.addEventListener("click", event => {
+
+            div.style.backgroundColor = corClicada
+        })
+
+    })
 
 }
 
 criarDivsPaleta()
 criarDivsDesenho()
 cliquePaleta()
+cliqueDesenho()
